@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Press/hold background -->
+    <item android:drawable="@color/colorLine" android:state_selected="true" />
+    <item android:drawable="@color/colorLine" android:state_activated="true" />
+    <item android:drawable="@color/colorLine" android:state_focused="true" />
+    <item android:drawable="@color/colorLine" android:state_pressed="true" />
+    <!-- Enable button background -->
+    <item android:drawable="@color/colorBright" android:state_enabled="true" />
+    <!-- Default background -->
+    <item android:drawable="@color/colorHint" />
+</selector>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.viethoa.potdemo.widgets.HorizontalImageView
+        android:id="@+id/img_thumbnail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:transitionName="image_thumbnail" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:theme="@style/ToolbarColoredBackArrow" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        style="@style/text_primary_large"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_thumbnail"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:padding="@dimen/space_10_dp"
+        android:textStyle="bold"
+        android:transitionName="text_name" />
+
+    <TextView
+        android:id="@+id/tv_description"
+        style="@style/text_dark_medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_name"
+        android:layout_marginBottom="@dimen/space_10_dp"
+        android:layout_marginEnd="@dimen/space_10_dp"
+        android:layout_marginLeft="@dimen/space_10_dp"
+        android:layout_marginRight="@dimen/space_10_dp"
+        android:layout_marginStart="@dimen/space_10_dp"
+        android:transitionName="text_description" />
+</RelativeLayout>

@@ -1,0 +1,134 @@
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'com.neenbedankt.android-apt'
+apply from: rootProject.file("version.gradle")
+
+// https://github.com/evant/gradle-retrolambda#using-google-play-services-causes-retrolambda-to-fail
+retrolambda {
+    jvmArgs '-noverify'
+}
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
+    defaultConfig {
+        applicationId "com.viethoa.potdemo"
+        minSdkVersion 11
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            res.srcDirs = [
+                    'src/main/res',
+                    'src/main/base_snackbar_layout'
+            ]
+        }
+    }
+    packagingOptions {
+        exclude 'LICENSE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE-FIREBASE.txt'
+        exclude 'META-INF/services/org.codehaus.groovy.transform.ASTTransformation'
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    // Variants config
+    def endpointFile = file('endpoint.properties')
+    if (endpointFile.canRead()) {
+        def Properties endpointProps = new Properties()
+        endpointProps.load(new FileInputStream(endpointFile))
+
+        productFlavors {
+            development {
+                applicationId "com.viethoa.potdemo"
+                buildConfigField 'String', 'MOVIE_ENDPOINT', endpointProps['DEVELOPMENT_MOVIE_ENDPOINT']
+                buildConfigField 'String', 'CHARACTER_ENDPOINT', endpointProps['DEVELOPMENT_CHARACTER_ENDPOINT']
+                buildConfigField 'String', 'IMAGE_ENDPOINT', endpointProps['DEVELOPMENT_IMAGE_ENDPOINT']
+                versionCode getDevelopmentVersionCode()
+                versionName getDevelopmentVersionName()
+            }
+            production {
+                applicationId "com.viethoa.potdemo"
+                buildConfigField 'String', 'MOVIE_ENDPOINT', endpointProps['PRODUCTION_MOVIE_ENDPOINT']
+                buildConfigField 'String', 'CHARACTER_ENDPOINT', endpointProps['PRODUCTION_CHARACTER_ENDPOINT']
+                buildConfigField 'String', 'IMAGE_ENDPOINT', endpointProps['PRODUCTION_IMAGE_ENDPOINT']
+                versionCode getProductionVersionCode()
+                versionName getProductionVersionName()
+            }
+        }
+
+        buildTypes {
+            release {
+                minifyEnabled false
+                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            }
+            debug {
+                buildConfigField 'String', 'MOVIE_ENDPOINT', endpointProps['DEVELOPMENT_MOVIE_ENDPOINT']
+                buildConfigField 'String', 'CHARACTER_ENDPOINT', endpointProps['DEVELOPMENT_CHARACTER_ENDPOINT']
+                buildConfigField 'String', 'IMAGE_ENDPOINT', endpointProps['DEVELOPMENT_IMAGE_ENDPOINT']
+            }
+        }
+    } else {
+        throw new GradleException("Could not read version.properties!")
+    }
+}
+
+ext {
+    supportLibVersion = '25.0.0'
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Android support libs
+    compile "com.android.support:support-v4:${supportLibVersion}"
+    compile "com.android.support:appcompat-v7:${supportLibVersion}"
+    compile "com.android.support:support-annotations:${supportLibVersion}"
+    compile "com.android.support:recyclerview-v7:${supportLibVersion}"
+    compile "com.android.support:cardview-v7:${supportLibVersion}"
+    compile "com.android.support:design:${supportLibVersion}"
+
+    // Base
+    compile 'com.google.code.gson:gson:2.4'
+    compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+
+    // Retrofit
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.2'
+    compile 'com.squareup.retrofit2:retrofit:2.0.2'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.2.0'
+
+    // Dagger
+    compile 'com.google.dagger:dagger:2.0.2'
+    apt "com.google.dagger:dagger-compiler:2.0.2"
+    provided 'org.glassfish:javax.annotation:10.0-b28'
+
+    // Rx
+    compile 'io.reactivex:rxjava:1.1.9'
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'com.jakewharton.rxrelay:rxrelay:1.1.0'
+    compile 'com.tbruyelle.rxpermissions:rxpermissions:0.7.1@aar'
+}
+
+dependencies {
+    // Java unit test
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.mockito:mockito-core:2.0.57-beta'
+    testCompile 'org.robolectric:robolectric:3.1'
+    testCompile 'org.robolectric:shadows-multidex:3.0'
+    testCompile 'org.hamcrest:hamcrest-core:1.3'
+    testApt 'com.google.dagger:dagger-compiler:2.0.2'
+}

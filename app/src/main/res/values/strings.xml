@@ -1,0 +1,22 @@
+<resources>
+
+    <string name="app_name">Marvel Test App (Development)</string>
+    <string name="na">N/A</string>
+    <string name="loading">Loading...</string>
+    <string name="no_internet_connection">No internet connection</string>
+    <string name="request_time_out">Request time out, please try again</string>
+
+    <!-- Main screen -->
+    <string name="main_now_playing">Now Playing</string>
+    <string name="main_movies_favourite">Movies Favourites</string>
+    <string name="main_characters">Characters</string>
+    <string name="main_characters_favorite">Characters</string>
+    <string name="main_no_character_favorite">You have no favorite characters</string>
+    <string name="main_no_movie_favorite">You have no favorite movies</string>
+
+    <!-- Detail screen -->
+    <string name="detail_description">DESCRIPTION</string>
+    <string name="detail_related">RELATED MOVIE</string>
+    <string name="detail_no_data">No related movies</string>
+
+</resources>

@@ -1,0 +1,96 @@
+//--------------------------------------------------------------------------------------------------
+// Development version config
+//--------------------------------------------------------------------------------------------------
+
+ext.getDevelopmentVersionCode = { ->
+    // Default value
+    def versionCode = 1;
+
+    def versionFile = file('version.properties')
+    if (versionFile.canRead()) {
+        def Properties versionProps = new Properties()
+        versionProps.load(new FileInputStream(versionFile))
+        def runTasks = gradle.startParameter.taskNames
+        if ('assembleRelease' in runTasks || ':app:assembleDevelopmentRelease' in runTasks
+                || 'assembleDevelopmentRelease' in runTasks) {
+            versionCode = versionProps['DEVELOPMENT_VERSION_CODE'].toInteger() + 1;
+            versionProps['DEVELOPMENT_VERSION_CODE'] = versionCode.toString()
+            versionProps.store(versionFile.newWriter(), null)
+        }
+    } else {
+        throw new GradleException("Could not read version.properties")
+    }
+
+    return versionCode;
+}
+
+ext.getDevelopmentVersionName = { ->
+    // Default value
+    def versionName = "0.1.0";
+
+    def versionFile = file('version.properties')
+    if (versionFile.canRead()) {
+        def date = new Date()
+        def formattedDate = date.format('yyyy.MM.dd')
+
+        def Properties versionProps = new Properties()
+        versionProps.load(new FileInputStream(versionFile))
+
+        def runTasks = gradle.startParameter.taskNames
+        if ('assembleRelease' in runTasks || ':app:assembleDevelopmentRelease' in runTasks
+                || 'assembleDevelopmentRelease' in runTasks) {
+            versionName = versionProps['DEVELOPMENT_VERSION_NAME'];
+            versionName = versionName.toString() + "." + formattedDate.toString();
+        }
+    } else {
+        throw new GradleException("Could not read version.properties")
+    }
+
+    return versionName;
+}
+
+//--------------------------------------------------------------------------------------------------
+// Production version config
+//--------------------------------------------------------------------------------------------------
+
+ext.getProductionVersionCode = { ->
+    // Default value
+    def versionCode = 1;
+
+    def versionFile = file('version.properties')
+    if (versionFile.canRead()) {
+        def Properties versionProps = new Properties()
+        versionProps.load(new FileInputStream(versionFile))
+        def runTasks = gradle.startParameter.taskNames
+        if ('assembleRelease' in runTasks || ':app:assembleProductionRelease' in runTasks
+                || 'assembleProductionRelease' in runTasks) {
+            versionCode = versionProps['PRODUCTION_VERSION_CODE'].toInteger() + 1;
+            versionProps['PRODUCTION_VERSION_CODE'] = versionCode.toString()
+            versionProps.store(versionFile.newWriter(), null)
+        }
+    } else {
+        throw new GradleException("Could not read version.properties")
+    }
+
+    return versionCode;
+}
+
+ext.getProductionVersionName = { ->
+    // Default value
+    def versionName = "0.1.0";
+
+    def versionFile = file('version.properties')
+    if (versionFile.canRead()) {
+        def Properties versionProps = new Properties()
+        versionProps.load(new FileInputStream(versionFile))
+        def runTasks = gradle.startParameter.taskNames
+        if ('assembleRelease' in runTasks || ':app:assembleProductionRelease' in runTasks
+                || 'assembleProductionRelease' in runTasks) {
+            versionName = versionProps['PRODUCTION_VERSION_NAME'];
+        }
+    } else {
+        throw new GradleException("Could not read version.properties")
+    }
+
+    return versionName;
+}

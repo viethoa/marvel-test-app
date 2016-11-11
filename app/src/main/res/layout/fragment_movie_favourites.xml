@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorLine">
+
+    <TextView
+        android:id="@+id/tv_no_data"
+        style="@style/text_dark_medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_70_dp"
+        android:gravity="center_horizontal"
+        android:text="@string/main_no_movie_favorite" />
+
+    <GridView
+        android:id="@+id/grid_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/space_04_dp"
+        android:numColumns="2"
+        android:scrollbars="none"
+        android:stretchMode="columnWidth" />
+</FrameLayout>

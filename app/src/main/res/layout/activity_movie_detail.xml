@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_movie_detail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.viethoa.potdemo.widgets.HorizontalImageView
+        android:id="@+id/img_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitCenter"
+        android:src="@drawable/placeholder_image"
+        android:transitionName="image_background" />
+
+    <View
+        android:id="@+id/v_mask"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/img_background"
+        android:background="@color/colorBlack20" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:theme="@style/ToolbarColoredBackArrow" />
+
+    <com.viethoa.potdemo.widgets.VerticalImageView
+        android:id="@+id/img_poster"
+        android:layout_width="@dimen/space_100_dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/img_background"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="-26dp"
+        android:layout_marginEnd="@dimen/space_16_dp"
+        android:layout_marginRight="@dimen/space_16_dp"
+        android:elevation="@dimen/elevation_06_dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/placeholder_image_v"
+        android:transitionName="image_poster" />
+
+    <TextView
+        android:id="@+id/tv_vote_average"
+        style="@style/text_bright_small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/img_poster"
+        android:layout_marginEnd="@dimen/space_10_dp"
+        android:layout_marginLeft="@dimen/space_10_dp"
+        android:layout_marginRight="@dimen/space_10_dp"
+        android:layout_marginStart="@dimen/space_10_dp"
+        android:background="@color/colorGreen"
+        android:elevation="@dimen/elevation_02_dp"
+        android:gravity="center"
+        android:paddingBottom="@dimen/space_06_dp"
+        android:paddingEnd="@dimen/space_08_dp"
+        android:paddingLeft="@dimen/space_08_dp"
+        android:paddingRight="@dimen/space_08_dp"
+        android:paddingStart="@dimen/space_08_dp"
+        android:paddingTop="@dimen/space_06_dp"
+        android:text="IMDB:"
+        android:transitionName="text_vote_average" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        style="@style/text_bright_large"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_vote_average"
+        android:layout_toLeftOf="@id/img_poster"
+        android:layout_toStartOf="@id/img_poster"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:padding="@dimen/space_10_dp"
+        android:textSize="@dimen/font_20_sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/content_description_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/img_poster"
+        android:layout_marginEnd="@dimen/space_10_dp"
+        android:layout_marginLeft="@dimen/space_10_dp"
+        android:layout_marginRight="@dimen/space_10_dp"
+        android:layout_marginStart="@dimen/space_10_dp"
+        android:layout_toLeftOf="@id/img_poster"
+        android:layout_toStartOf="@id/img_poster"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/text_light_small"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/detail_description" />
+
+        <ImageView
+            android:id="@+id/img_calendar"
+            android:layout_width="@dimen/space_12_dp"
+            android:layout_height="@dimen/space_12_dp"
+            android:layout_marginEnd="@dimen/space_04_dp"
+            android:layout_marginRight="@dimen/space_04_dp"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ic_calendar"
+            android:transitionName="image_calendar_icon" />
+
+        <TextView
+            android:id="@+id/tv_release_date"
+            style="@style/text_light_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10/10/2016"
+            android:transitionName="text_release_date" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_description"
+        style="@style/text_dark_small"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/content_description_title"
+        android:maxLines="6"
+        android:padding="@dimen/space_10_dp" />
+
+    <TextView
+        android:id="@+id/tv_related_title"
+        style="@style/text_light_small"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_description"
+        android:background="@drawable/text_view_header_background"
+        android:paddingBottom="@dimen/space_06_dp"
+        android:paddingEnd="@dimen/space_10_dp"
+        android:paddingLeft="@dimen/space_10_dp"
+        android:paddingRight="@dimen/space_10_dp"
+        android:paddingStart="@dimen/space_10_dp"
+        android:paddingTop="@dimen/space_06_dp"
+        android:text="@string/detail_related"
+        android:transitionName="text_release_date" />
+
+    <ProgressBar
+        android:id="@+id/progress_loading"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@id/tv_related_title"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/space_30_dp"
+        android:indeterminateDrawable="@drawable/progress_loading" />
+
+    <GridView
+        android:id="@+id/grid_view_related"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tv_related_title"
+        android:layout_margin="@dimen/space_04_dp"
+        android:numColumns="2"
+        android:scrollbars="none"
+        android:stretchMode="columnWidth" />
+
+    <TextView
+        android:id="@+id/tv_no_data"
+        style="@style/text_dark_large"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_related_title"
+        android:layout_marginTop="@dimen/space_30_dp"
+        android:gravity="center"
+        android:text="No similar movies"
+        android:visibility="gone" />
+</RelativeLayout>

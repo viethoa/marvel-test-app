@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        android:id="@+id/snack_bar_content_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/snackBarBackgroundColor"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/snack_bar_message_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingBottom="@dimen/space_16_dp"
+            android:paddingEnd="@dimen/space_16_dp"
+            android:paddingLeft="@dimen/space_16_dp"
+            android:paddingRight="@dimen/space_16_dp"
+            android:paddingStart="@dimen/space_16_dp"
+            android:paddingTop="@dimen/space_16_dp">
+
+            <TextView
+                android:id="@+id/snack_bar_tv_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="fsdfsf sfsfs ssfdsdf fsf"
+                android:textColor="@color/snackBarTextColor" />
+        </FrameLayout>
+
+        <View
+            android:id="@+id/snack_bar_divider"
+            android:layout_width="@dimen/line_px"
+            android:layout_height="match_parent"
+            android:background="@color/snackBarTextColor" />
+
+        <ImageView
+            android:id="@+id/snack_bar_btn_close"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="@dimen/space_14_dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/snack_bar_icon_delete" />
+    </LinearLayout>
+</FrameLayout>

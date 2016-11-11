@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorLine">
+
+    <ProgressBar
+        android:id="@+id/progress_loading"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center"
+        android:indeterminateDrawable="@drawable/progress_loading" />
+
+    <TextView
+        android:id="@+id/tv_no_data"
+        style="@style/text_dark_large"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_30_dp"
+        android:gravity="center"
+        android:text="No data response"
+        android:visibility="gone" />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_to_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/space_04_dp">
+
+        <GridView
+            android:id="@+id/grid_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:numColumns="2"
+            android:scrollbars="none"
+            android:stretchMode="columnWidth" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+</FrameLayout>

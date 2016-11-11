@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!-- App -->
+    <color name="colorSecond">#25B6F2</color>
+    <color name="colorSecondDark">#1c89b6</color>
+    <color name="colorYellow">#F8C000</color>
+    <color name="colorYellowDark">#c09500</color>
+    <color name="colorGreen">#78E14D</color>
+    <color name="colorGreenDark">#62b83f</color>
+    <color name="colorRed">#D0021B</color>
+    <color name="colorRedDark">#a70317</color>
+
+    <!-- Base -->
+    <color name="transparent">#00000000</color>
+    <color name="colorBright">#FFFFFF</color>
+    <color name="colorLine">#E8ECF3</color>
+    <color name="colorHint">#b7b7b7</color>
+    <color name="colorLight">#999999</color>
+    <color name="colorDark">#444444</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorBlack20">#99000000</color>
+
+    <!-- Material SnackBar -->
+    <color name="snackBarTextColor">#FFFFFF</color>
+    <color name="snackBarBackgroundColor">#3F51B5</color>
+    <color name="snackBarColorNotificationError">#FFFF4444</color>
+    <color name="snackBarColorNotificationWaring">#FFF5A623</color>
+    <color name="snackBarColorNotificationSuccess">#FF8BC34A</color>
+
+    <!-- Swipe to refresh -->
+    <color name="swipe_color_1">#263bae</color>
+    <color name="swipe_color_2">#374ab0</color>
+    <color name="swipe_color_3">#4657b1</color>
+    <color name="swipe_color_4">#5b69b4</color>
+
+    <!-- Movies -->
+    <color name="colorMask">#80000000</color>
+</resources>
