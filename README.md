@@ -3,8 +3,8 @@ Demo app for [developer.marvel.com](http://developer.marvel.com/)
 
 ![](https://github.com/viethoa/marvel-test-app/blob/master/now-play.png "Fast scroller alphabet")
 ![](https://github.com/viethoa/marvel-test-app/blob/master/movies-favorite.png "Fast scroller alphabet")
-![](https://github.com/viethoa/marvel-test-app/blob/master/movie-details.png "Fast scroller alphabet")
 ![](https://github.com/viethoa/marvel-test-app/blob/master/charactors.png "Fast scroller alphabet")
+![](https://github.com/viethoa/marvel-test-app/blob/master/movie-details.png "Fast scroller alphabet")
 ![](https://github.com/viethoa/marvel-test-app/blob/master/charactor-details.png "Fast scroller alphabet")
 
 License
