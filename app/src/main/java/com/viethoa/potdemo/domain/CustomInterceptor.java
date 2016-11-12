@@ -50,11 +50,12 @@ public class CustomInterceptor implements Interceptor {
 
     @Override
     public Response intercept(Chain chain) throws IOException {
-        if (!TextUtils.isEmpty(responseString)) { //only for unit test
+        // Only for unit test
+        if (!TextUtils.isEmpty(responseString)) {
             return mockResponse(chain);
         }
 
-        //real working flow come from here
+        // real working flow come from here
         Request request = chain.request();
         Request.Builder builder = request.newBuilder()
                 .addHeader(CONTENT_TYPE, "application/json")
@@ -64,7 +65,7 @@ public class CustomInterceptor implements Interceptor {
         request = builder.build();
         Response response = chain.proceed(request);
 
-        //authentication problem
+        // Authentication problem
         if (response.code() == 403) {
             //TODO: handle kick-out user
         }

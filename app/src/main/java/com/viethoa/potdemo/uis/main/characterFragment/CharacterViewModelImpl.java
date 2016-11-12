@@ -3,7 +3,6 @@ package com.viethoa.potdemo.uis.main.characterFragment;
 import com.viethoa.potdemo.base.BaseViewModel;
 import com.viethoa.potdemo.base.BriefObserver;
 import com.viethoa.potdemo.domain.responses.CharacterApiResponse;
-import com.viethoa.potdemo.domain.responses.MovieApiResponse;
 import com.viethoa.potdemo.domain.services.character.CharacterService;
 import com.viethoa.potdemo.models.Character;
 
@@ -44,7 +43,7 @@ public class CharacterViewModelImpl extends BaseViewModel<CharacterViewModel.Lis
                     @Override
                     public void onNext(CharacterApiResponse<List<Character>> response) {
                         if (listener != null) {
-                            listener.onGetCharactersSuccess(response.getData().getData());
+                            listener.onGetCharactersSuccess(response.getData().getResults());
                         }
                     }
                 }));

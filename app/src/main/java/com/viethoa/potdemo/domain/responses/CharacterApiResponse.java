@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class CharacterApiResponse<T> extends BaseResponse {
 
-    @SerializedName("data")
+    @SerializedName("results")
     private Data<T> data;
 
     public Data<T> getData() {
@@ -21,7 +21,7 @@ public class CharacterApiResponse<T> extends BaseResponse {
         @SerializedName("total")
         private int totalPage;
         @SerializedName("results")
-        private T data;
+        private T results;
 
         public int getPage() {
             return page;
@@ -39,12 +39,12 @@ public class CharacterApiResponse<T> extends BaseResponse {
             this.totalPage = totalPage;
         }
 
-        public T getData() {
-            return data;
+        public T getResults() {
+            return results;
         }
 
-        public void setData(T data) {
-            this.data = data;
+        public void setResults(T results) {
+            this.results = results;
         }
     }
 }

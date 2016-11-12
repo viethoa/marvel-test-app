@@ -1,0 +1,17 @@
+{
+    "code":200,
+    "status":"Ok",
+    "copyright":"© 2016 MARVEL",
+    "attributionText":"Data provided by Marvel. © 2016 MARVEL",
+    "attributionHTML":"<a href=\"http://marvel.com\">Data provided by Marvel. © 2016 MARVEL</a>",
+    "etag":"52aa60accb59b3c8b50fbb3f1869b3735d82e6a9",
+    "results":{
+        "offset":0,
+        "limit":20,
+        "total":1485,
+        "count":20,
+        "results":[
+
+        ]
+    }
+}
