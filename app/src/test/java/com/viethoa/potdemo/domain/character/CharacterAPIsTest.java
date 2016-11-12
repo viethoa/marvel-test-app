@@ -1,8 +1,11 @@
-package com.viethoa.potdemo.domain;
+package com.viethoa.potdemo.domain.character;
 
 import android.content.Context;
 
 import com.viethoa.potdemo.BuildConfig;
+import com.viethoa.potdemo.domain.BaseDomainTest;
+import com.viethoa.potdemo.domain.CustomInterceptor;
+import com.viethoa.potdemo.domain.NetworkComponentTest;
 import com.viethoa.potdemo.domain.responses.CharacterApiResponse;
 import com.viethoa.potdemo.domain.services.character.CharacterAPIs;
 import com.viethoa.potdemo.fakedatafactory.NetworkFakeDataFactory;
@@ -29,7 +32,7 @@ import static org.mockito.Matchers.any;
 
 @RunWith(RobolectricGradleTestRunner.class)
 @Config(constants = BuildConfig.class, sdk = 21)
-public class CharacterAPIsTest extends BaseAPIsTest {
+public class CharacterAPIsTest extends BaseDomainTest {
 
     @Inject
     Context applicationContext;

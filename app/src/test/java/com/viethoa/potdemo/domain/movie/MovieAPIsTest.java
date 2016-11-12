@@ -1,14 +1,16 @@
-package com.viethoa.potdemo.domain;
+package com.viethoa.potdemo.domain.movie;
 
 import android.content.Context;
 
 import com.viethoa.potdemo.BuildConfig;
+import com.viethoa.potdemo.domain.BaseDomainTest;
+import com.viethoa.potdemo.domain.CustomInterceptor;
+import com.viethoa.potdemo.domain.NetworkComponentTest;
 import com.viethoa.potdemo.domain.responses.MovieApiResponse;
 import com.viethoa.potdemo.domain.services.movie.MovieAPIs;
 import com.viethoa.potdemo.fakedatafactory.NetworkFakeDataFactory;
 import com.viethoa.potdemo.models.Movie;
 
-import org.hamcrest.Matchers;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricGradleTestRunner;
@@ -30,7 +32,7 @@ import static org.mockito.Matchers.any;
 
 @RunWith(RobolectricGradleTestRunner.class)
 @Config(constants = BuildConfig.class, sdk = 21)
-public class MovieAPIsTest extends BaseAPIsTest {
+public class MovieAPIsTest extends BaseDomainTest {
 
     @Inject
     MovieAPIs movieAPIs;

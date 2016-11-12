@@ -9,7 +9,7 @@ import org.robolectric.RuntimeEnvironment;
  * Created by VietHoa on 12/11/2016.
  */
 
-public abstract class BaseAPIsTest {
+public abstract class BaseDomainTest {
 
     protected abstract void init(NetworkComponentTest component);
 
